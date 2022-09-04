@@ -7,7 +7,6 @@ Render::Renderer::Renderer(int width, int height, int gl_major, int gl_minor)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, gl_major);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, gl_minor);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    
 }
 
 ReturnType Render::Renderer::create_windowed_context(void(*framebuffer_size_callback)(GLFWwindow *, int, int))
@@ -21,7 +20,7 @@ ReturnType Render::Renderer::create_windowed_context(void(*framebuffer_size_call
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 		throw std::runtime_error("Failed to initialize GLAD");
-
+	glEnable(GL_DEPTH_TEST);
     return SUCCESS;
 }
 

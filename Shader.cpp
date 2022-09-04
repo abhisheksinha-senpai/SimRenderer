@@ -85,3 +85,8 @@ void Render::Shader::check_errors(unsigned int object, std::string type)
         }
     }
 }
+
+int Render::Shader::get_shader_pgm()
+{
+    return this->shader_pgm;
+}

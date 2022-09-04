@@ -15,8 +15,6 @@ namespace Render
         unsigned int shader_pgm;
         unsigned int src_ver_id;
         unsigned int src_frag_id;
-        char *src_ver_mem;
-        char *src_frag_mem;
         public:
         Shader(){};
         void create_vs_shader(const char* src_ver);
@@ -24,6 +22,7 @@ namespace Render
         void compile();
         void use();
         void check_errors(unsigned int object, std::string type);
+        int get_shader_pgm();
     };
 }
 

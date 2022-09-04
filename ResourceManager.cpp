@@ -4,7 +4,17 @@ ReturnType Render::ResourceManager::load_shader(std::string file_name, std::stri
 {
     try
     {
-        std::ifstream shader_file(file_name);
+        std::ifstream shader_file;
+        shader_file.clear(std::istream::eofbit | std::istream::failbit);
+        try
+        {
+            shader_file.open(file_name);
+        }
+        catch (std::ios_base::failure& e) {
+            std::cout << "Error: " << strerror(errno);
+            throw;
+        }
+
         std::stringstream shader;
         shader << shader_file.rdbuf();
         shader_file.close();
